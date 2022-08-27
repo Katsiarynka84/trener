@@ -126,15 +126,21 @@ while True:
         # для этого можно использовать range() либо enumerate().
         print(tickets)
         my_seat = input('Введите номер места, указанный в приобретенном билете: ')
-        if not my_seat.isdigit() or int(my_seat) in [ticket[3] for ticket in tickets]:
+        if not my_seat.isdigit():
+            #  or int(my_seat) not in [ticket[3] for ticket in tickets]
             print(f'Некорректный номер: {my_seat}')
+
         else:
             for i in range(len(tickets)):
                 if tickets[i][3] == int(my_seat):
                     del tickets[i]
+                    print('Возврат билета прошёл успешно!')
                     break
-            print('Возврат билета прошёл успешно!')
+            else:
+                print('Билет с указанным местом не выкуплен')
+
         print(tickets)
+
 
 
     elif commandlet == '3':
